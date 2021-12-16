@@ -1,0 +1,7 @@
+{
+    "name": "SismosParalela",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "vue"
+}

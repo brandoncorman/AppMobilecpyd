@@ -1,0 +1,14 @@
+/* ion-toolbar {
+    --background: var(--ion-color-primary);
+    --color: var(--ion-color-primary-contrast);
+} */
+
+ion-content {
+    --offset-bottom: auto!important;
+    --overflow: hidden;
+    overflow: auto;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+}

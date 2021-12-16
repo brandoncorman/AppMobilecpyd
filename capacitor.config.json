@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "SismosParalela",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
