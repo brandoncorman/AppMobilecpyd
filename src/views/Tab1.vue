@@ -2,7 +2,7 @@
     <ion-page>
         <ion-header>
             <ion-toolbar>
-                <ion-title class="ion-margin-top">Últimos sismos</ion-title>
+                <ion-title class="ion-margin-top">Lista de estaciones</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">

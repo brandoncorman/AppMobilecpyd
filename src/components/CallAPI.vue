@@ -1,26 +1,24 @@
 <template>
-    <ion-router-outlet/>
-    <ion-page>
-        <ion-list>
-            <ion-item>
-                <ion-label>
-                    <p>Información climatológica de Chile.</p>
-                </ion-label>
-            </ion-item>
-            <ion-item-sliding v-for="dato in datos" :key="dato.id">
-                <ion-item>
-                    <p>
-                        {{dato.temperatura_maxima}};
-                    </p>
-                </ion-item>
-                <ion-item-options side="end">
-                    <ion-item-option @click="showDetails()">
-                        <ion-icon slot="icon-only" :icon="informationCircle"></ion-icon>
-                    </ion-item-option>
-                </ion-item-options>
-            </ion-item-sliding>
-        </ion-list>
-    </ion-page>
+    <LoadingScreen :isLoading="isLoading" />
+    <div v-if="!isLoading">
+        <ion-router-outlet/>
+        <ion-page>
+            <ion-list>
+                <ion-item-sliding v-for="dato in datos" :key="dato.id">
+                    <ion-item>
+                        <p>
+                            {{dato.nombre_estacion}}
+                        </p>
+                    </ion-item>
+                    <ion-item-options side="end">
+                        <ion-item-option @click="showDetails()">
+                            <ion-icon slot="icon-only" :icon="informationCircle"></ion-icon>
+                        </ion-item-option>
+                    </ion-item-options>
+                </ion-item-sliding>
+            </ion-list>
+        </ion-page>
+    </div>
 </template>
 
 <script>
@@ -38,8 +36,8 @@ import { informationCircle } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 import axios from 'axios';
 
-const sitioURL  =  'http://localhost:81/APIparalela/public/grupo-u/climas';
-const token = '3|GdQhgz4VFO3JkEoqRufDGKFWolCKS9btpOjChMvA';
+const sitioURL  =  'http://localhost:81/APIcpyd/public/grupo-c/climas';
+const token = '4|KOwRA4T1yvcWjnjPaEbGid6E55Flyi8LWcZo3r9s';
 
 export default defineComponent({
     components: {

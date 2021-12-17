@@ -1,41 +1,56 @@
 <template>
-    <ion-card>
-        <ion-card-header>
-        <ion-card-subtitle>Desarrollador</ion-card-subtitle>
-        <ion-card-title>1</ion-card-title>
-        </ion-card-header>
-    </ion-card>
+  <!-- List of Text Items -->
+  <ion-list>
+    <ion-item>
+        <ion-avatar slot="start">
+            <img src="../assets/img/icono.png" />
+        </ion-avatar>
+        <ion-label>
+            <h2>Diego Ahumada Moreno</h2>
+            <h3>UTEM</h3>
+            <p>Estudiante de Ing. Civil en</p>
+            <p>Computación mención Informática</p>
+        </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-avatar slot="start">
+            <img src="../assets/img/icono.png" />
+        </ion-avatar>
+        <ion-label>
+            <h2>Brandon Corman Genovez</h2>
+            <h3>UTEM</h3>
+            <p>Estudiante de Ing. Civil en</p>
+            <p>Computación mención Informática</p>
+        </ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-avatar slot="start">
+            <img src="../assets/img/icono.png" />
+        </ion-avatar>
+        <ion-label>
+            <h2>Lukas Jara Marin</h2>
+            <h3>UTEM</h3>
+            <p>Estudiante de Ing. Civil en</p>
+            <p>Computación mención Informática</p>
+        </ion-label>
+    </ion-item>
+  </ion-list>
 
-    <ion-card>
-        <ion-card-header>
-        <ion-card-subtitle>Desarrollador</ion-card-subtitle>
-        <ion-card-title>2</ion-card-title>
-        </ion-card-header>
-    </ion-card>
 </template>
 
-<script lang="ts">
-import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/vue';
-
+<script>
+import { 
+  IonItem,
+  IonList, 
+  IonLabel,
+} from '@ionic/vue';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    components: { 
-        IonCard, 
-        IonCardContent, 
-        IonCardHeader, 
-        IonCardSubtitle, 
-        IonCardTitle
-    }
+  components: {
+    IonItem,
+    IonList, 
+    IonLabel,
+  }
 });
 </script>
-
-<style scoped>
-    img {
-        object-fit: cover;
-        object-position: 100% 0;
-        width: auto;
-        height: 100vw;
-        min-width: 100%;
-    }
-</style>

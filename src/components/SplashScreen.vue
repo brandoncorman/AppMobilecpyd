@@ -1,7 +1,7 @@
 <template>
-    <div :class="{ loader: true, fadeout: !isLoading }">
-        Loading ...
-    </div>
+  <div :class="{ loader: true, fadeout: !isLoading }">
+      <img src="../assets/img/Logo_UTEM.png">
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,7 +28,7 @@ export default {
 }
 
 .fadeout {
-    animation: fadeout 2s forwards;
+    animation: fadeout 15s forwards;
 }
 
 @keyframes fadeout {
