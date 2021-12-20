@@ -1,57 +1,35 @@
 <template>
-    <LoadingScreen :isLoading="isLoading" />
-    <div v-if="!isLoading">
-        <ion-router-outlet/>
-        <ion-page>
-            <ion-list>
-                <ion-item-sliding v-for="dato in datos" :key="dato.id">
-                    <ion-item>
-                        <p>
-                            {{dato.nombre_estacion}}
-                        </p>
-                    </ion-item>
-                    <ion-item-options side="end">
-                        <ion-item-option @click="showDetails()">
-                            <ion-icon slot="icon-only" :icon="informationCircle"></ion-icon>
-                        </ion-item-option>
-                    </ion-item-options>
-                </ion-item-sliding>
-            </ion-list>
-        </ion-page>
-    </div>
+    <ion-page>
+        <ion-list>
+            <ion-item-sliding v-for="dato in datos" :key="dato.id">
+                <ion-item>
+                    <p>
+                        {{dato.nombre_estacion}}
+                    </p>
+                </ion-item>
+            </ion-item-sliding>
+        </ion-list>
+    </ion-page>
 </template>
 
 <script>
 import { 
     IonItem, 
     IonList,
-    IonItemSliding,
-    IonItemOption, 
-    IonItemOptions,
-    IonIcon
+    IonItemSliding
 } from '@ionic/vue';
-
-import { informationCircle } from 'ionicons/icons';
 
 import { defineComponent } from 'vue';
 import axios from 'axios';
 
-const sitioURL  =  'http://localhost:81/APIcpyd/public/grupo-c/climas';
-const token = '4|KOwRA4T1yvcWjnjPaEbGid6E55Flyi8LWcZo3r9s';
+const sitioURL  =  'https://api.sebastian.cl/grupo-c/climas';
+const token = '2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8';
 
 export default defineComponent({
     components: {
         IonItem,
         IonList,
-        IonItemSliding,
-        IonItemOption, 
-        IonItemOptions,
-        IonIcon,
-    },
-    setup() {
-        return {
-            informationCircle
-        }
+        IonItemSliding
     },
     data() {
         return {
@@ -79,12 +57,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-    ion-thumbnail {
-        position: relative;
-        display: inline-block;
-        text-align: center;
-    }
-
     .centrado {
         position: absolute;
         top: 50%;
