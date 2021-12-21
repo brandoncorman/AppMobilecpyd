@@ -2,8 +2,7 @@
     <ion-page>
         <ion-list>
             <ion-item-sliding v-for="dato in datos" :key="dato.id">
-                <!-- setOpen(true) -->
-                <ion-item button="true" @click="openModal">
+                <ion-item button="true" @click="openModal(dato.nombre_estacion)">
                     <ion-thumbnail slot="end" class="vertical-center">
                             <ion-icon :icon="informationCircle" size="large"></ion-icon>
                     </ion-thumbnail>
@@ -11,12 +10,6 @@
                             {{dato.nombre_estacion}}
                         </ion-label>
                 </ion-item>
-                <!-- <ion-modal
-                    :is-open="isOpenRef"
-                    @onDidDismiss="setOpen(false)"
-                >
-                <base-modal :rootPage="ModalHome"></base-modal>
-                </ion-modal>   -->  
             </ion-item-sliding>
         </ion-list>
     </ion-page>
@@ -27,16 +20,12 @@ import {
     IonItem, 
     IonList,
     IonItemSliding,
-    IonIcon,/* 
-    IonModal, */
-    modalController/* 
-    BaseModal */
+    IonIcon,
+    modalController
 } from '@ionic/vue';
 
 import { informationCircle } from 'ionicons/icons';
-import { defineComponent /* , ref  */} from 'vue';
-/* import BaseModal from "./BaseModal.vue";
-import ModalHome from "./ModalHome.vue"; */
+import { defineComponent } from 'vue';
 import axios from 'axios';
 import Modal from './Modal.vue';
 
@@ -46,17 +35,13 @@ const token = '2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8';
 export default defineComponent({
     name: "Home",
     setup() {
-        /* const isOpenRef = ref(false);
-        const setOpen = (state: boolean) => (isOpenRef.value = state); */
-        return { /* isOpenRef, setOpen,  ModalHome, */ informationCircle };
+        return { informationCircle };
     },
     components: {
         IonItem,
         IonList,
         IonItemSliding,
-        IonIcon/* 
-        IonModal,
-        BaseModal */
+        IonIcon
     },
     data() {
         return {
@@ -79,14 +64,14 @@ export default defineComponent({
                 this.datos = response.data
             })
         },
-        async openModal() {
+        async openModal(nombreEstacion: string) {
             const modal = await modalController
                 .create({
-                component: Modal,
-                cssClass: 'my-custom-class',
-                componentProps: {
-                    title: 'New Title'
-                },
+                    component: Modal,
+                    cssClass: 'my-custom-class',
+                    componentProps: {
+                        title: nombreEstacion,
+                    },
                 })
             return modal.present();
         },
@@ -102,31 +87,3 @@ export default defineComponent({
         height: 100%;
     }
 </style>
-
-<!--<template>
-  <ion-page>
-      <ion-button @click="openModal">Open Modal</ion-button>
-  </ion-page>
-</template>
-
-<script>
-import { IonButton, /* IonContent */ IonPage, modalController } from '@ionic/vue';
-import Modal from './modal.vue'
-
-export default {
-  components: { IonButton, /* IonContent, */ IonPage },
-  methods: {
-    async openModal() {
-      const modal = await modalController
-        .create({
-          component: Modal,
-          cssClass: 'my-custom-class',
-          componentProps: {
-            title: 'New Title'
-          },
-        })
-      return modal.present();
-    },
-  },
-}
-</script>-->

@@ -2,7 +2,9 @@
   <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-        <ion-button @click="closeModal">Cerrar</ion-button>
+        <ion-button @click="closeModal">
+            <ion-icon name="chevron-back"></ion-icon>
+        </ion-button>
       </ion-buttons>
       <ion-title>{{ title }}</ion-title>
     </ion-toolbar>
@@ -14,6 +16,7 @@
 
 <script>
 import { IonContent, IonHeader, IonTitle, IonToolbar, modalController } from '@ionic/vue';
+import { chevronBack } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -26,7 +29,7 @@ export default defineComponent({
       await modalController.dismiss();
     };
     return {
-      closeModal
+      closeModal, chevronBack
     };
   },
   data() {
