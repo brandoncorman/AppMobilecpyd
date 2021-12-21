@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "ClimaParalela",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}
