@@ -1,25 +1,19 @@
 <template>
-    <ion-page>
-        <ion-list>
-            <ion-item-sliding v-for="dato in datos" :key="dato.id">
-                <ion-item button="true" @click="openModal(dato.nombre_estacion)">
-                    <ion-thumbnail slot="end" class="vertical-center">
-                            <ion-icon :icon="informationCircle" size="large"></ion-icon>
-                    </ion-thumbnail>
-                        <ion-label>
-                            {{dato.nombre_estacion}}
-                        </ion-label>
-                </ion-item>
-            </ion-item-sliding>
-        </ion-list>
-    </ion-page>
+    <ion-item v-for="dato in datos" :key="dato.id" button="true" @click="openModal(dato.nombre_estacion)">
+        <ion-thumbnail slot="end" class="vertical-center">
+                <ion-icon :icon="informationCircle" size="large"></ion-icon>
+        </ion-thumbnail>
+            <ion-label>
+                    {{dato.nombre_estacion}}
+            </ion-label>
+    </ion-item>
 </template>
 
 <script lang="ts">
 import { 
-    IonItem, 
-    IonList,
-    IonItemSliding,
+    IonLabel,
+    IonThumbnail,
+    IonItem,
     IonIcon,
     modalController
 } from '@ionic/vue';
@@ -31,7 +25,7 @@ import Modal from './Modal.vue';
 
 const sitioURL  =  'https://api.sebastian.cl/grupo-c/climas';
 const token = '2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8';
-  
+
 export default defineComponent({
     name: "Home",
     setup() {
@@ -39,9 +33,9 @@ export default defineComponent({
     },
     components: {
         IonItem,
-        IonList,
-        IonItemSliding,
-        IonIcon
+        IonThumbnail,
+        IonIcon,
+        IonLabel
     },
     data() {
         return {
@@ -64,13 +58,15 @@ export default defineComponent({
                 this.datos = response.data
             })
         },
+        
         async openModal(nombreEstacion: string) {
             const modal = await modalController
                 .create({
                     component: Modal,
                     cssClass: 'my-custom-class',
                     componentProps: {
-                        title: nombreEstacion,
+                        titulo: nombreEstacion,
+                        mapa: nombreEstacion.replace(/[.', ]/g, '')
                     },
                 })
             return modal.present();

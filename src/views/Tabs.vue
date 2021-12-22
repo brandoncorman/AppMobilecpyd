@@ -7,8 +7,14 @@
 </template>
 
 <script lang="ts">
+    import { 
+        IonPage
+    } from '@ionic/vue';
 
-export default {
-    
-}
+    export default  {
+        components: 
+        { 
+            IonPage
+        }
+    }
 </script>
