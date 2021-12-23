@@ -237,3 +237,8 @@ body {
 
 /* 
 ---------------------------------------- */
+
+.custom-class {
+  margin-top: constant(safe-area-inset-top);
+  margin-top: env(safe-area-inset-top);
+}

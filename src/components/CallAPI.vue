@@ -63,7 +63,7 @@ export default defineComponent({
             const modal = await modalController
                 .create({
                     component: Modal,
-                    cssClass: 'my-custom-class',
+                    cssClass: 'ion-margin-top',
                     componentProps: {
                         titulo: nombreEstacion,
                         mapa: nombreEstacion.replace(/[.', ]/g, '')
