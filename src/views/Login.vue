@@ -97,7 +97,7 @@ export default {
                     console.log("NOT logged in...");
                     }).catch(err => {
                         /* alert(`Google auth error: ${err}`); */
-                        console.log("equisdeeeeee");
+                        alert(`Google auth error: ${err}`);
                     });
                 }
             })
