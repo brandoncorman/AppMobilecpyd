@@ -8,6 +8,11 @@
                     <ion-label>Inicio</ion-label>
                 </ion-tab-button>
 
+                <ion-tab-button tab="tab3" href="/tabs/tab3">
+                    <ion-icon :icon="calculatorOutline"/>
+                    <ion-label>Estimaciones</ion-label>
+                </ion-tab-button>
+
                 <ion-tab-button tab="tab2" href="/tabs/tab2">
                     <ion-icon :icon="people"/>
                     <ion-label>Integrantes</ion-label>
@@ -26,10 +31,10 @@
         IonLabel, 
         IonIcon, 
         IonPage, 
-        IonRouterOutlet 
+        IonRouterOutlet
     } from '@ionic/vue';
 
-    import { people, home } from 'ionicons/icons';
+    import { people, home, calculatorOutline } from 'ionicons/icons';
 
     export default {
         name: 'Tabs',
@@ -47,6 +52,7 @@
             return {
                 people,
                 home,
+                calculatorOutline
             }
         }
     }

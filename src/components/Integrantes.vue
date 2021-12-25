@@ -43,6 +43,7 @@ import {
   IonItem,
   IonList, 
   IonLabel,
+  IonAvatar
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
 
@@ -51,6 +52,7 @@ export default defineComponent({
     IonItem,
     IonList, 
     IonLabel,
+    IonAvatar
   }
 });
 </script>

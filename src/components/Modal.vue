@@ -13,14 +13,17 @@
     <ion-card>
       <img class="center" :src="require('@/assets/img/mapas/' + mapa + '.png')">
       <ion-card-header>
-        <ion-card-title>{{descripcion[mapa]}}</ion-card-title>
+        <!-- <ion-card-title>{{descripcion[mapa]}}</ion-card-title> -->
+        <ion-card-content>
+            {{descripcion[mapa]}}
+        </ion-card-content>
       </ion-card-header>
     </ion-card>
   </ion-content>
 </template>
 
 <script>
-import { IonHeader, IonButton, IonContent, IonButtons, IonIcon, IonTitle, IonToolbar, modalController, IonCard, IonCardHeader, IonCardTitle } from '@ionic/vue';
+import { IonHeader, IonButton, IonContent, IonButtons, IonIcon, IonTitle, IonToolbar, modalController, IonCard, IonCardHeader, IonCardContent } from '@ionic/vue';
 import { chevronBack } from 'ionicons/icons';
 import { defineComponent } from 'vue';
 
@@ -67,7 +70,7 @@ export default defineComponent({
       content: 'Content',
     }
   },
-  components: { IonHeader, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonToolbar, IonCard, IonCardHeader, IonCardTitle }
+  components: { IonHeader, IonTitle, IonContent, IonButton, IonButtons, IonIcon, IonToolbar, IonCard, IonCardHeader, IonCardContent }
 });
 </script>
 

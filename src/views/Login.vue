@@ -25,8 +25,8 @@
 
 
         <div class="oauth-btns">
-          Iniciar sesión con Google
-        <ion-button expand="block" @click="googleAuth"><ion-icon slot="start" :icon="logoGoogle" />Google</ion-button>
+          Iniciar sesión con Utem.cl
+        <ion-button expand="block" @click="googleAuth"><ion-icon slot="start" :icon="logoGoogle" />Google Utem</ion-button>
         </div>
     </ion-content>
   </ion-page>
@@ -43,6 +43,7 @@ import {
   IonButton,
   IonIcon
 } from "@ionic/vue";
+
 import { logoGoogle } from "ionicons/icons";
 
 export default {
@@ -97,7 +98,8 @@ export default {
                     console.log("NOT logged in...");
                     }).catch(err => {
                         /* alert(`Google auth error: ${err}`); */
-                        alert(`Google auth error: ${err}`);
+                        /* alert(`Google auth error: ${err}`); */
+                        console.log(err);
                     });
                 }
             })
@@ -111,7 +113,7 @@ export default {
       // API call to handle googleUserProfile data
       // then redirect to home/profile page
       console.log("googleUserProfile", data);
-      this.$router.push("/profile");
+      this.$router.push("/tabs/tab1");
     }
   },
 };

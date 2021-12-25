@@ -1,7 +1,7 @@
 <template>
     <ion-item v-for="dato in datos" :key="dato.id" button="true" @click="openModal(dato.nombre_estacion)">
         <ion-thumbnail slot="end" class="vertical-center">
-                <ion-icon :icon="informationCircle" size="large"></ion-icon>
+                <!-- <ion-icon :icon="chevronForward" size="large"></ion-icon> -->
         </ion-thumbnail>
             <ion-label>
                     {{dato.nombre_estacion}}
@@ -13,12 +13,12 @@
 import { 
     IonLabel,
     IonThumbnail,
-    IonItem,
-    IonIcon,
+    IonItem,/* 
+    IonIcon, */
     modalController
 } from '@ionic/vue';
 
-import { informationCircle } from 'ionicons/icons';
+/* import { chevronForward } from 'ionicons/icons'; */
 import { defineComponent } from 'vue';
 import axios from 'axios';
 import Modal from './Modal.vue';
@@ -28,13 +28,13 @@ const token = '2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8';
 
 export default defineComponent({
     name: "Home",
-    setup() {
-        return { informationCircle };
-    },
+    /* setup() {
+        return { chevronForward };
+    }, */
     components: {
         IonItem,
-        IonThumbnail,
-        IonIcon,
+        IonThumbnail,/* 
+        IonIcon, */
         IonLabel
     },
     data() {

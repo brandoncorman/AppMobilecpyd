@@ -2,7 +2,12 @@
     <ion-page>
         <ion-header>
             <ion-toolbar>
-                <ion-title class="ion-margin-top">Integrantes</ion-title>
+            <ion-buttons class="logout" slot="end" @click="logout">
+                <ion-button>
+                    Salir
+                </ion-button>
+            </ion-buttons>
+                <ion-title>Integrantes</ion-title>
             </ion-toolbar>
         </ion-header>
         <ion-content :fullscreen="true">
@@ -11,29 +16,39 @@
     </ion-page>
 </template>
 
-<script lang="ts">
+<script>
     import { 
         IonPage, 
         IonHeader, 
         IonToolbar, 
         IonTitle, 
-        IonContent 
+        IonContent,
+        IonButtons,
+        IonButton 
     } from '@ionic/vue';
 
-/* import ExploreContainer from '@/components/ExploreContainer.vue'; */
 import Integrantes from '@/components/Integrantes.vue';
 
     export default  {
         name: 'Tab1',
         components: 
         { 
-            /* ExploreContainer, */
             Integrantes,
             IonHeader,
             IonToolbar,
             IonTitle,
             IonContent,
-            IonPage
+            IonPage,
+            IonButtons,
+            IonButton 
+        },
+        methods: {
+            logout() {
+                this.$router.push("/login");
+                const gapi = window.gapi;
+                gapi.auth2.getAuthInstance().disconnect();
+                this.googleUserProfile = undefined;
+            }
         }
     }
 </script>
