@@ -53,5 +53,5 @@
                 this.googleUserProfile = undefined;
             }
         }
-    };
+};
 </script>
