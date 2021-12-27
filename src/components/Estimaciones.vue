@@ -8,37 +8,50 @@
     </ion-item>
   </ion-list>
   <div padding="">  
-      <ion-button color="success" expand="block" @click="callApiEstimacion()">Calcular estimación</ion-button>
+      <ion-button color="success" expand="block" @click="callApiEstimacion">Calcular estimación</ion-button>
   </div>
+  <div v-if = "datos != null">
     <ion-item lines="none" class="ion-text-center">
       <ion-thumbnail class="vertical-center">
         <ion-icon :icon="rainy" size="large"></ion-icon>
       </ion-thumbnail>
-      <ion-label :v-if="latitud != null && longitud != null">{{datos[0].resultado_precipitacion}} mm</ion-label>
+      <ion-label>{{datos.resultado_precipitacion}} mm</ion-label>
     </ion-item>
     <ion-item lines="none" class="ion-text-center">
       <ion-thumbnail class="vertical-center">
       <ion-icon :icon="thermometerOutline" size="large"></ion-icon>
       </ion-thumbnail>
-      <ion-label :v-if="latitud != null && longitud != null">{{datos[0].resultado_max}} °C</ion-label>
+      <ion-label>{{datos.resultado_max}} °C</ion-label>
     </ion-item>
     <ion-item lines="none" class="ion-text-center">
       <ion-thumbnail class="vertical-center">
       <ion-icon :icon="thermometer" size="large"></ion-icon>
       </ion-thumbnail>
-      <ion-label :v-if="latitud != null && longitud != null">{{datos[0].resultado_min}} °C</ion-label>
+      <ion-label>{{datos.resultado_min}} °C</ion-label>
+    </ion-item>
+  </div>
+
+  <div v-else>
+    <ion-item lines="none" class="ion-text-center">
+      <ion-thumbnail class="vertical-center">
+        <ion-icon :icon="rainy" size="large"></ion-icon>
+      </ion-thumbnail>
+      <ion-label> mm</ion-label>
     </ion-item>
     <ion-item lines="none" class="ion-text-center">
       <ion-thumbnail class="vertical-center">
-      <ion-icon :icon="transgenderSharp" size="large"></ion-icon>
+      <ion-icon :icon="thermometerOutline" size="large"></ion-icon>
       </ion-thumbnail>
-      <ion-label>Tremenda facha la de usted</ion-label>
+      <ion-label>°C</ion-label>
     </ion-item>
+    <ion-item lines="none" class="ion-text-center">
+      <ion-thumbnail class="vertical-center">
+      <ion-icon :icon="thermometer" size="large"></ion-icon>
+      </ion-thumbnail>
+      <ion-label>°C</ion-label>
+    </ion-item>
+  </div>
 
-<p>
-  {{longitud}}</p>
-  <p>
-  {{latitud}}</p>
   
 </template>
 
@@ -47,15 +60,12 @@ import {
   IonItem,
   IonList,
   IonInput,
-  IonButton,/* 
-  IonHeader,
-  IonToolbar,
-  IonTitle, */
+  IonButton,
   IonIcon,
   IonThumbnail
 } from '@ionic/vue';
 import { defineComponent } from 'vue';
-import { rainy, thermometerOutline, thermometer, transgenderSharp} from 'ionicons/icons';
+import { rainy, thermometerOutline, thermometer } from 'ionicons/icons';
 import axios from 'axios';
 
 export default defineComponent({
@@ -63,10 +73,7 @@ export default defineComponent({
     IonItem,
     IonList,
     IonInput,
-    IonButton,/* 
-    IonHeader,
-    IonToolbar,
-    IonTitle, */
+    IonButton,
     IonIcon,
     IonThumbnail
   },
@@ -74,21 +81,18 @@ export default defineComponent({
     return {
       latitud: null,
       longitud: null,
-      datos: null,
+      datos: null
     };
   },
   setup(){
     return{
-      rainy, thermometerOutline, thermometer, transgenderSharp
+      rainy, thermometerOutline, thermometer
     };
   },
-  /* mounted() {
-    this.callApiEstimacion();
-  }, */
   methods: {
     callApiEstimacion() {
-      const urlApiEstimacion = "http://localhost:81/APIcpyd/public/grupo-c/" + this.longitud + "/" + this.latitud + "/estimacion";
-      const token = "1|2TsaBbCn21waaEFpu1xi5etXPSC756slI1UVFjKb";
+      const urlApiEstimacion = "http://127.0.0.1:8000/grupo-c/" + this.longitud + "/" + this.latitud + "/estimacion";
+      const token = "2|2HZtpFDiUohDPnNFEbvdL6896dPSlBMuFeRzBJOJ";
       axios.get(urlApiEstimacion, {
           headers: {
               Authorization: 'Bearer ' + token,
@@ -98,20 +102,10 @@ export default defineComponent({
       })
       .then(response => {
           this.datos = response.data
-      })
-    }
+      });
+    },
+    
   },
-
-  /*
-  data: {
-    longitud
-    latitud
-  },
-  methods: {
-
-
-  } */
-
 });
 </script>
 <style scoped>

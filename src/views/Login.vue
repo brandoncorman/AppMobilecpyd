@@ -5,25 +5,6 @@
         class="logo"
         src="..\assets\img\logo_utem_png.png"
       />
-      <!-- <form>
-        <ion-list>
-          <ion-item>
-            <ion-label>Email</ion-label>
-            <ion-input type="email" v-model="email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Clave</ion-label>
-            <ion-input type="password" v-model="password"></ion-input>
-          </ion-item>
-        </ion-list>
-      </form> -->
-
-        <!-- <ion-button expand="block" :routerLink="{ name: 'profile' }" >Iniciar sesión</ion-button>
-        <ion-button color="danger" expand="block">
-          Este botón no hace nada
-        </ion-button> -->
-
-
         <div class="oauth-btns">
           Iniciar sesión con Utem.cl
         <ion-button expand="block" @click="googleAuth"><ion-icon slot="start" :icon="logoGoogle" />Google Utem</ion-button>
@@ -36,10 +17,6 @@
 import {
   IonPage,
   IonContent,
- /*  IonList,
-  IonItem,
-  IonLabel,
-  IonInput, */
   IonButton,
   IonIcon
 } from "@ionic/vue";
@@ -51,10 +28,6 @@ export default {
   components: {
     IonPage,
     IonContent,
-    /* IonList,
-    IonItem,
-    IonLabel,
-    IonInput, */
     IonButton,
     IonIcon
   },
@@ -95,15 +68,12 @@ export default {
                     this.loginApiCall(this.googleUserProfile);
                     console.log("NOT logged in...");
                     }).catch(err => {
-                        /* alert(`Google auth error: ${err}`); */
-                        /* alert(`Google auth error: ${err}`); */
                         console.log(err);
                     });
                 }
             })
             .catch((err) => {
                 console.log(err);
-                /* alert(err); */
             })
         });
     },

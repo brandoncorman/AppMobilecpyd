@@ -13,28 +13,22 @@
 import { 
     IonLabel,
     IonThumbnail,
-    IonItem,/* 
-    IonIcon, */
+    IonItem,
     modalController
 } from '@ionic/vue';
 
-/* import { chevronForward } from 'ionicons/icons'; */
 import { defineComponent } from 'vue';
 import axios from 'axios';
 import Modal from './Modal.vue';
 
-const sitioURL  =  'https://api.sebastian.cl/grupo-c/climas';
-const token = '2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8';
+const sitioURL  =  'http://127.0.0.1:8000/grupo-c/climas';
+const token = '2|2HZtpFDiUohDPnNFEbvdL6896dPSlBMuFeRzBJOJ';
 
 export default defineComponent({
     name: "Home",
-    /* setup() {
-        return { chevronForward };
-    }, */
     components: {
         IonItem,
-        IonThumbnail,/* 
-        IonIcon, */
+        IonThumbnail,
         IonLabel
     },
     data() {

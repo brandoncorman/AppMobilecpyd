@@ -1,5 +1,4 @@
 <template>
-  <!-- List of Text Items -->
   <ion-list>
     <ion-item>
         <ion-avatar slot="start">

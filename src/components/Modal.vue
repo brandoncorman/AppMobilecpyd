@@ -13,7 +13,6 @@
     <ion-card>
       <img class="center" :src="require('@/assets/img/mapas/' + mapa + '.png')">
       <ion-card-header>
-        <!-- <ion-card-title>{{descripcion[mapa]}}</ion-card-title> -->
         <ion-card-content>
             {{descripcion[mapa]}}
         </ion-card-content>

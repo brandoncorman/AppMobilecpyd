@@ -1,16 +1,11 @@
 <template>
   <ion-app>
-    
-        <LoadingScreen :isLoading="isLoading" />
-        <ion-router-outlet v-if="!isLoading"/>
-       <!-- <main v-if="!isLoading">
-            <Login />
-        </main> -->
+    <LoadingScreen :isLoading="isLoading" />
+    <ion-router-outlet v-if="!isLoading"/>
   </ion-app>
 </template>
 
-<script>/* 
-import Login from "./views/Login"; */
+<script>
 import LoadingScreen from "./views/LoadingScreen";
 import { IonApp, IonRouterOutlet } from '@ionic/vue';
 import { defineComponent } from 'vue';
@@ -20,8 +15,7 @@ export default defineComponent({
   name: "App",
   components: { 
     IonApp,
-    IonRouterOutlet,/* 
-    Login, */
+    IonRouterOutlet,
     LoadingScreen
   },
   data() {
@@ -30,7 +24,7 @@ export default defineComponent({
   mounted() {
     setTimeout(() => {
       this.isLoading = false;
-    }, 5000); /* luego cambiar a 3000 */
+    }, 5000);
   }
 });
 </script>
