@@ -91,8 +91,8 @@ export default defineComponent({
   },
   methods: {
     callApiEstimacion() {
-      const urlApiEstimacion = "http://127.0.0.1:8000/grupo-c/" + this.longitud + "/" + this.latitud + "/estimacion";
-      const token = "2|2HZtpFDiUohDPnNFEbvdL6896dPSlBMuFeRzBJOJ";
+      const urlApiEstimacion = "https://api.sebastian.cl/grupo-c/" + this.longitud + "/" + this.latitud + "/estimacion";
+      const token = "2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8";
       axios.get(urlApiEstimacion, {
           headers: {
               Authorization: 'Bearer ' + token,

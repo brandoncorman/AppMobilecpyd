@@ -7,8 +7,6 @@
                     Salir
                 </ion-button>
             </ion-buttons>
-            <!-- <div class="logout" slot="end" @click="logout">Salir</div> 
-            /* class="ion-margin-top" */-->
                 <ion-title >Estimaciones</ion-title>
             </ion-toolbar>
         </ion-header>
@@ -18,7 +16,6 @@
     </ion-page>
 </template>
 
-<!--lang="ts"-->
 <script >
     import { 
         IonPage,

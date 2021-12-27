@@ -1,18 +1,14 @@
 <template>
-    <ion-item v-for="dato in datos" :key="dato.id" button="true" @click="openModal(dato.nombre_estacion)">
-        <ion-thumbnail slot="end" class="vertical-center">
-                <!-- <ion-icon :icon="chevronForward" size="large"></ion-icon> -->
-        </ion-thumbnail>
-            <ion-label>
-                    {{dato.nombre_estacion}}
-            </ion-label>
+    <ion-item v-for="dato in datos" :key="dato.id" button="true" @click="openModal(dato.nombre_estacion)" detail>
+        <ion-label>
+            {{dato.nombre_estacion}}
+        </ion-label>
     </ion-item>
 </template>
 
 <script lang="ts">
 import { 
     IonLabel,
-    IonThumbnail,
     IonItem,
     modalController
 } from '@ionic/vue';
@@ -21,14 +17,13 @@ import { defineComponent } from 'vue';
 import axios from 'axios';
 import Modal from './Modal.vue';
 
-const sitioURL  =  'http://127.0.0.1:8000/grupo-c/climas';
-const token = '2|2HZtpFDiUohDPnNFEbvdL6896dPSlBMuFeRzBJOJ';
+const sitioURL  =  'https://api.sebastian.cl/grupo-c/climas';
+const token = '2|viCVCaSYgP9hN2zk6UEhWYeLq0SmvArCcxoCW1T8';
 
 export default defineComponent({
     name: "Home",
     components: {
         IonItem,
-        IonThumbnail,
         IonLabel
     },
     data() {
